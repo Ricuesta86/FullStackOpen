@@ -2,11 +2,10 @@ import { useState } from "react";
 
 const Statistics = ({ text, value }: any) => {
   return (
-    <>
-      <p>
-        {text} {value}
-      </p>
-    </>
+    <tr>
+      <td>{text}</td>
+      <td>{value}</td>
+    </tr>
   );
 };
 const Button = ({ handle, text }: any) => (
@@ -33,14 +32,18 @@ function App() {
         <p>No feedback given</p>
       ) : (
         <>
-          <Statistics text={"good"} value={good} />
-          <Statistics text={"neutral"} value={neutral} />
-          <Statistics text={"bad"} value={bad} />
-          <Statistics text={"all"} value={good + neutral + bad} />
-          <Statistics
-            text={"positives"}
-            value={good !== 0 ? (good / (good + neutral + bad)) * 100 : 0}
-          />
+          <table>
+            <tbody>
+              <Statistics text={"good"} value={good} />
+              <Statistics text={"neutral"} value={neutral} />
+              <Statistics text={"bad"} value={bad} />
+              <Statistics text={"all"} value={good + neutral + bad} />
+              <Statistics
+                text={"positives"}
+                value={good !== 0 ? (good / (good + neutral + bad)) * 100 : 0}
+              />
+            </tbody>
+          </table>
         </>
       )}
     </div>
